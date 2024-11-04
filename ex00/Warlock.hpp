@@ -1,8 +1,8 @@
 #ifndef WARLOCK
-#define WARLOCK
 
-#include <string>
+#define WARLOCK
 #include <iostream>
+#include <string>
 
 class Warlock
 {
@@ -11,14 +11,15 @@ private:
     std::string title;
     Warlock(/* args */);
 public:
+    Warlock(std::string _name, std::string _title);
+    Warlock(const Warlock &src);
+    Warlock& operator=(const Warlock &rhs);
     const std::string& getName(void) const;
     const std::string& getTitle(void) const;
-    void setTitle (const std::string &_title);
-    Warlock(std::string _name, std::string _title);
-    Warlock(const Warlock &rhs);
-    void introduce() const;
-    Warlock& operator=(const Warlock &rhs);
+    void setTitle(const std::string &newTitle);
     ~Warlock();
+    void introduce() const;
 };
+
 
 #endif
