@@ -25,7 +25,7 @@ ATarget::ATarget(const ATarget &src)
         std::cout << this->getType() << " has been " << rhs.getEffects() << "!" << std::endl;
     }
 
-    const std::string ATarget::getType(void) const
+    const std::string& ATarget::getType(void) const
     {
         return(this->type);
     }

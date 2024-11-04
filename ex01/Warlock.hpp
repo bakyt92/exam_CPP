@@ -3,7 +3,7 @@
 #define WARLOCK
 #include <iostream>
 #include <string>
-#include <ASpell.hpp>
+#include "ASpell.hpp"
 #include <vector>
 #include <map>
 #include <utility>

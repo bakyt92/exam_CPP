@@ -1,14 +1,14 @@
 #ifndef DUMMY
 #define DUMMY
 
-#include "ASpell.hpp"
+#include "ATarget.hpp"
 
 class Dummy : public ATarget
 {
     public:
         Dummy(void);
         ~Dummy();
-        virtual ATarget* clone() const;
+        ATarget* clone() const;
 };
 
 #endif

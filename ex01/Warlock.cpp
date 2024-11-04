@@ -50,7 +50,7 @@
         std::map <std::string, ASpell*>::iterator it_end = this->arr.end();
         while (it_beg != it_end)
         {
-            delete it_beg.second;
+            delete it_beg->second;
             ++it_beg;
         }
         this->arr.clear();
@@ -60,16 +60,16 @@ void Warlock::learnSpell(ASpell *spell_new)
     {
         if (spell_new)
         {
-            arr.insert(std::pair<std::string, ASpell*>(spell_new->getName, spell_new->clone()));
+            arr.insert(std::pair<std::string, ASpell*>(spell_new->getName(), spell_new->clone()));
         }
     }
     
-    void Warlock::forgetSpell(std::string spell_name);
+    void Warlock::forgetSpell(std::string spell_name)
     {
         std::map<std::string, ASpell*>::iterator it_find = arr.find(spell_name);
         if (it_find != arr.end())
         {
-            delete it_find.second;
+            delete it_find->second;
         }
         arr.erase(spell_name);
     }
