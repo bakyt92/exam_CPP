@@ -46,18 +46,39 @@
     Warlock::~Warlock()
     {
         std::cout << this->getName() << ": My job here is done!" << std::endl;
+        std::map <std::string, ASpell*>::iterator it_beg = this->arr.begin();
+        std::map <std::string, ASpell*>::iterator it_end = this->arr.end();
+        while (it_beg != it_end)
+        {
+            delete it_beg.second;
+            ++it_beg;
+        }
+        this->arr.clear();
     } 
 
 void Warlock::learnSpell(ASpell *spell_new)
     {
         if (spell_new)
         {
-            array.insert(spell_new->clone());
+            arr.insert(std::pair<std::string, ASpell*>(spell_new->getName, spell_new->clone()));
         }
     }
     
     void Warlock::forgetSpell(std::string spell_name);
-    
-    void Warlock::launchSpell(std::string spell_name, ATarget const &ref);
+    {
+        std::map<std::string, ASpell*>::iterator it_find = arr.find(spell_name);
+        if (it_find != arr.end())
+        {
+            delete it_find.second;
+        }
+        arr.erase(spell_name);
+    }
+
+    void Warlock::launchSpell(std::string spell_name, ATarget const &ref)
+    {
+        ASpell* spell = arr[spell_name];
+        if (spell)
+            spell->launch(ref);
+    }
 
 

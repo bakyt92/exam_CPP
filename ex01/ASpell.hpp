@@ -6,6 +6,8 @@
 #include <string>
 #include "ATarget.hpp"
 
+class ATarget;
+
 class ASpell
 {
 private:
@@ -18,9 +20,9 @@ public:
     ASpell(const ASpell &src);
     const std::string getName(void) const;
     const std::string getEffects(void) const;
-    void launch(const ATarget &targ);
+    void launch(const ATarget &targ) const;
     virtual ASpell& clone() = 0;
-    ~ASpell();
+    virtual ~ASpell();
 };
 
 #endif

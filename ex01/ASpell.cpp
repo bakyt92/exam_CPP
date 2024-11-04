@@ -31,9 +31,9 @@ ASpell::ASpell(std::string _name, std::string _effects): name(_name), effects(_e
         return (this->effects);
     }
 // problem with launch
-    void ASpell::launch(const ATarget &targ)
+    void ASpell::launch(const ATarget &targ) const 
     {
-        targ.getHitBySpell(*this);
+        targ.getHitBySpell((*this));
     }
 
     // virtual ASpell& ASpell::clone() = 0

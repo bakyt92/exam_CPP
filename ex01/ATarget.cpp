@@ -20,7 +20,7 @@ ATarget::ATarget(const ATarget &src)
     *this = src;
 }
 
-    void ATarget::getHitBySpell(const ASpell &rhs)
+    void ATarget::getHitBySpell(const ASpell &rhs) const
     {
         std::cout << this->getType() << " has been " << rhs.getEffects() << "!" << std::endl;
     }

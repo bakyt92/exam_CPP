@@ -5,6 +5,7 @@
 #include <string>
 #include <ASpell.hpp>
 #include <vector>
+#include <map>
 #include <utility>
 
 class Warlock
@@ -13,7 +14,7 @@ private:
     std::string name;
     std::string title;
     Warlock(/* args */);
-    std::vector<ASpell *> array;
+    std::map<std::string, ASpell *> arr;
 public:
     Warlock(std::string _name, std::string _title);
     Warlock(const Warlock &src);

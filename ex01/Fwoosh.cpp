@@ -10,9 +10,7 @@ Fwoosh::~Fwoosh()
 
 }
 
-Fwoosh& Fwoosh::clone()
+ASpell *Fwoosh::clone() const
 {
-    Fwoosh Fw;
-    Fw = *this;
-    return (Fw);
+    return (new Fwoosh());
 }

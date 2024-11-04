@@ -2,17 +2,13 @@
 
 Dummy::Dummy(void) : ATarget("Target Practice Dummy")
 {
-
 }
         
 Dummy::~Dummy()
 {
-
 }
 
-Dummy& Dummy::clone()
+ATarget *Dummy::clone() const
 {
-    Dummy Fw;
-    Fw = *this;
-    return (Fw);
+    return (new Dummy());
 }

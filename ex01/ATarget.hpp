@@ -4,6 +4,8 @@
 
 #include "ASpell.hpp"
 
+class ASpell;
+
 class ATarget
 {
 private:
@@ -13,10 +15,10 @@ public:
     ATarget(std::string _type);
     ATarget& operator=(const ATarget &rhs);
     ATarget(const ATarget &src);
-    void getHitBySpell(const ASpell &rhs);
+    void getHitBySpell(const ASpell &rhs) const;
     const std::string getType(void) const;
     virtual ATarget& clone() = 0;
-    ~ATarget();
+    virtual ~ATarget();
 };
 
 ATarget::ATarget(/* args */)
