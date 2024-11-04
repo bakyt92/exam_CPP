@@ -1,0 +1,116 @@
+In file included from cpp_module01/Warlock.cpp:1:
+cpp_module01/Warlock.hpp:6:10: error: 'ASpell.hpp' file not found with <angled> include; use "quotes" instead
+#include <ASpell.hpp>
+         ^~~~~~~~~~~~
+         "ASpell.hpp"
+cpp_module01/Warlock.cpp:53:26: error: no member named 'second' in 'std::__map_iterator<std::__tree_iterator<std::__value_type<std::string, ASpell *>, std::__tree_node<std::__value_type<std::string, ASpell *>, void *> *, long> >'; did you mean to use '->' instead of '.'?
+            delete it_beg.second;
+                         ^
+                         ->
+cpp_module01/Warlock.cpp:63:67: error: reference to non-static member function must be called; did you mean to call it with no arguments?
+            arr.insert(std::pair<std::string, ASpell*>(spell_new->getName, spell_new->clone()));
+                                                       ~~~~~~~~~~~^~~~~~~
+                                                                         ()
+cpp_module01/Warlock.cpp:63:24: error: no matching constructor for initialization of 'std::pair<std::string, ASpell *>' (aka 'pair<basic_string<char>, ASpell *>')
+            arr.insert(std::pair<std::string, ASpell*>(spell_new->getName, spell_new->clone()));
+                       ^                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/pair.h:100:5: note: candidate constructor not viable: no known conversion from 'ASpell' to 'ASpell *const' for 2nd argument; take the address of the argument with &
+    pair(_T1 const& __t1, _T2 const& __t2) : first(__t1), second(__t2) {}
+    ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/pair.h:92:27: note: candidate constructor not viable: requires 1 argument, but 2 were provided
+    _LIBCPP_HIDE_FROM_ABI pair(pair const&) = default;
+                          ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/pair.h:93:27: note: candidate constructor not viable: requires 1 argument, but 2 were provided
+    _LIBCPP_HIDE_FROM_ABI pair(pair&&) = default;
+                          ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/pair.h:104:5: note: candidate constructor template not viable: requires single argument '__p', but 2 arguments were provided
+    pair(const pair<_U1, _U2>& __p) : first(__p.first), second(__p.second) {}
+    ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/pair.h:97:5: note: candidate constructor not viable: requires 0 arguments, but 2 were provided
+    pair() : first(), second() {}
+    ^
+cpp_module01/Warlock.cpp:67:19: error: out-of-line declaration of a member must be a definition [-Wout-of-line-declaration]
+    void Warlock::forgetSpell(std::string spell_name);
+         ~~~~~~~~~^
+cpp_module01/Warlock.cpp:68:5: error: expected unqualified-id
+    {
+    ^
+6 errors generated.
+cpp_module01/ATarget.cpp:33:14: error: redefinition of '~ATarget'
+    ATarget::~ATarget()
+             ^
+cpp_module01/ATarget.hpp:28:10: note: previous definition is here
+ATarget::~ATarget()
+         ^
+1 error generated.
+In file included from cpp_module01/Dummy.cpp:1:
+cpp_module01/Dummy.hpp:11:26: error: 'Dummy::clone' hides overloaded virtual function [-Werror,-Woverloaded-virtual]
+        virtual ATarget* clone() const;
+                         ^
+cpp_module01/ATarget.hpp:20:22: note: hidden overloaded virtual function 'ATarget::clone' declared here: different return type ('ATarget &' vs 'ATarget *')
+    virtual ATarget& clone() = 0;
+                     ^
+cpp_module01/Dummy.cpp:13:17: error: allocating an object of abstract class type 'Dummy'
+    return (new Dummy());
+                ^
+cpp_module01/ATarget.hpp:20:22: note: unimplemented pure virtual method 'clone' in 'Dummy'
+    virtual ATarget& clone() = 0;
+                     ^
+2 errors generated.
+In file included from cpp_module01/Fwoosh.cpp:1:
+cpp_module01/Fwoosh.hpp:13:25: error: 'Fwoosh::clone' hides overloaded virtual function [-Werror,-Woverloaded-virtual]
+        virtual ASpell *clone() const;
+                        ^
+cpp_module01/ASpell.hpp:24:21: note: hidden overloaded virtual function 'ASpell::clone' declared here: different return type ('ASpell &' vs 'ASpell *')
+    virtual ASpell& clone() = 0;
+                    ^
+cpp_module01/Fwoosh.cpp:15:17: error: allocating an object of abstract class type 'Fwoosh'
+    return (new Fwoosh());
+                ^
+cpp_module01/ASpell.hpp:24:21: note: unimplemented pure virtual method 'clone' in 'Fwoosh'
+    virtual ASpell& clone() = 0;
+                    ^
+2 errors generated.
+In file included from cpp_module01/main.cpp:1:
+cpp_module01/Warlock.hpp:6:10: error: 'ASpell.hpp' file not found with <angled> include; use "quotes" instead
+#include <ASpell.hpp>
+         ^~~~~~~~~~~~
+         "ASpell.hpp"
+In file included from cpp_module01/main.cpp:2:
+cpp_module01/Fwoosh.hpp:13:25: error: 'Fwoosh::clone' hides overloaded virtual function [-Werror,-Woverloaded-virtual]
+        virtual ASpell *clone() const;
+                        ^
+cpp_module01/ASpell.hpp:24:21: note: hidden overloaded virtual function 'ASpell::clone' declared here: different return type ('ASpell &' vs 'ASpell *')
+    virtual ASpell& clone() = 0;
+                    ^
+In file included from cpp_module01/main.cpp:3:
+cpp_module01/Dummy.hpp:11:26: error: 'Dummy::clone' hides overloaded virtual function [-Werror,-Woverloaded-virtual]
+        virtual ATarget* clone() const;
+                         ^
+cpp_module01/ATarget.hpp:20:22: note: hidden overloaded virtual function 'ATarget::clone' declared here: different return type ('ATarget &' vs 'ATarget *')
+    virtual ATarget& clone() = 0;
+                     ^
+cpp_module01/main.cpp:11:9: error: variable type 'Dummy' is an abstract class
+  Dummy bob;
+        ^
+cpp_module01/ATarget.hpp:20:22: note: unimplemented pure virtual method 'clone' in 'Dummy'
+    virtual ATarget& clone() = 0;
+                     ^
+cpp_module01/main.cpp:12:24: error: allocating an object of abstract class type 'Fwoosh'
+  Fwoosh* fwoosh = new Fwoosh();
+                       ^
+cpp_module01/ASpell.hpp:24:21: note: unimplemented pure virtual method 'clone' in 'Fwoosh'
+    virtual ASpell& clone() = 0;
+                    ^
+5 errors generated.
+
+<--------------~-~-~-~-~-~-~-~-~------------>
+Richard: This looks like another boring day.$
+Richard: I am Richard, the Titled!$
+Target Practice Dummy has been fwooshed!$
+Richard: My job here is done!$
+\n
+<--------------~-~-~-~-~-~-~-~-~------------>\n\n
+<--------------~-~-~-~-~-~-~-~-~------------>
+\n
+<--------------~-~-~-~-~-~-~-~-~------------>
